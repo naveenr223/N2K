@@ -970,23 +970,11 @@
             }
             // Case B: Back from Journey to Start Overlay
             else if (!event.state || event.state.page !== 'journey') {
-                // Ensure Finale is closed just in case
-                const finaleScreen = document.getElementById('finaleScreen');
-                if (finaleScreen) finaleScreen.style.display = 'none';
-
-                // Return to Overlay
-                // Reset Scroll to Top
-                window.scrollTo({ top: 0, behavior: 'auto' });
-
-                mainContent.style.opacity = '0';
-                startOverlay.style.display = 'flex';
-                musicBtn.style.display = 'none';
-
-                setTimeout(() => {
-                    startOverlay.style.opacity = '1';
-                }, 100);
+                // Return to start = Refresh page to lock it again
+                window.location.reload();
             }
         });
+
 
         // --- BACKGROUND HEARTS ---
         const heartsContainer = document.getElementById('heartsContainer');
