@@ -39,7 +39,8 @@
             background: var(--bg-gradient);
             background-attachment: fixed;
             color: var(--text-white);
-            overflow-x: hidden;
+            overflow: hidden;
+            /* Prevent scrolling initially */
             min-height: 100vh;
         }
 
@@ -854,6 +855,8 @@
             startOverlay.style.opacity = '0';
             setTimeout(() => {
                 startOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+                document.body.style.overflowX = 'hidden'; // Keep horizontal hidden
                 mainContent.style.opacity = '1';
                 // Show controls
                 if (hasSelectedSong) {
